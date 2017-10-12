@@ -31,7 +31,7 @@ public class EmployeeDaoDBImpl implements EmployeeDao{
 	@SuppressWarnings("unchecked")
 	public List<Employee> getEmployeeList() {
 		List<Employee> employeeList = null;
-		String employeesQuerry = "Select from Employee";
+		String employeesQuerry = "Select e from Employee e";
 		Query query =  em.createQuery(employeesQuerry);
 		employeeList = (List<Employee>)query.getResultList();
 		return employeeList;

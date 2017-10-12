@@ -1,5 +1,7 @@
 package com.ibm.EmployeeStatsSpring.resource;
 
+import java.util.List;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.ibm.cit.EmployeeStatsSpring.model.Employee;
@@ -11,12 +13,17 @@ public class SpringOrmMain {
 		ClassPathXmlApplicationContext  ctx = new ClassPathXmlApplicationContext("classpath:/database-config.xml");
 		ctx.refresh();
 		EmployeeService  emplService = ctx.getBean("employeeService",EmployeeService.class);
-		Employee empl = emplService.getEmployeeInstance(2);
+		// тест get employee by id
+/*		Employee empl = emplService.getEmployeeInstance(2);
 		System.out.println(empl.getId());
 		System.out.println(empl.getEmployeeFirstName());
 		System.out.println(empl.getEmployeeLastName());
 		System.out.println(empl.getAge());
-		System.out.println(empl.getLengthOfService());
+		System.out.println(empl.getLengthOfService());*/
+		List<Employee> employeesList = emplService.getEmployeesList();
+		for(Employee empl: employeesList) {
+			System.out.println(empl);
+		}
 	}
 
 }
