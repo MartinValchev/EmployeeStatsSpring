@@ -37,5 +37,26 @@ public class EmployeeDaoDBImpl implements EmployeeDao{
 		return employeeList;
 	}
 
+	public List<Employee> getEmployeeListAge(int age) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Employee> getEmployeeListFirstName(String firstName) {
+		List<Employee> employeeList = null;
+		String employeesQuerry = "Select e from Employee e where e.employeeFirstName like :employeeFirstName";
+		Query query =  em.createQuery(employeesQuerry);
+		String firstNameMod = firstName +'%';
+		query.setParameter("employeeFirstName", firstNameMod);
+		employeeList = (List<Employee>)query.getResultList();
+		return employeeList;
+	}
+
+	public List<Employee> getEmployeeListLastName(String lastName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
 	
 }

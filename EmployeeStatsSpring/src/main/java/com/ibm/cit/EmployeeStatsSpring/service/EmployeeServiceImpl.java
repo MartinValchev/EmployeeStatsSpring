@@ -12,7 +12,7 @@ import com.ibm.cit.EmployeeStatsSpring.model.Employee;
 import com.ibm.cit.EmployeeStatsSpring.model.EmployeeStatistics;
 
 @Service(value="employeeService")
-public class EmployeeService implements EmployeeStatisticsService {
+public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	@Qualifier("employeeDao")
 	private EmployeeDao employeeDao;

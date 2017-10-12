@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.ibm.cit.EmployeeStatsSpring.model.Employee;
-import com.ibm.cit.EmployeeStatsSpring.service.EmployeeService;
+import com.ibm.cit.EmployeeStatsSpring.service.EmployeeServiceImpl;
 
 public class SpringOrmMain {
 
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext  ctx = new ClassPathXmlApplicationContext("classpath:/database-config.xml");
 		ctx.refresh();
-		EmployeeService  emplService = ctx.getBean("employeeService",EmployeeService.class);
+		EmployeeServiceImpl  emplService = ctx.getBean("employeeService",EmployeeServiceImpl.class);
 		// тест get employee by id
 /*		Employee empl = emplService.getEmployeeInstance(2);
 		System.out.println(empl.getId());
