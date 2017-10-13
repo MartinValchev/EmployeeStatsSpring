@@ -12,7 +12,7 @@
 
    <context:component-scan base-package="com.ibm.cit.EmployeeStatsSpring.controller"/>
    <mvc:annotation-driven/>
-  <import resource="classpath:/spring.xml"/>
+  <import resource="classpath:/database-config.xml"/>
     <bean id="viewResolver"
     	class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
         <property name="prefix">

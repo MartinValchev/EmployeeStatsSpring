@@ -20,10 +20,14 @@ public class SpringOrmMain {
 		System.out.println(empl.getEmployeeLastName());
 		System.out.println(empl.getAge());
 		System.out.println(empl.getLengthOfService());*/
-		List<Employee> employeesList = emplService.getEmployeesList();
+		
+	List<Employee> employeesList = emplService.getPortionEmployeeList(1, 4);
 		for(Employee empl: employeesList) {
 			System.out.println(empl);
+		
 		}
+/*		int employeesCount = emplService.getEmployeeListSize();
+		System.out.println(employeesCount);*/
 	}
 
 }

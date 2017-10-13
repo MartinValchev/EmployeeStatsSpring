@@ -25,43 +25,47 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public List<Employee> getEmployeesList(){
 		return employeeDao.getEmployeeList();
 	}
+	@Transactional
 	public EmployeeStatistics generateNewEmployeesStatistics() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	@Transactional
 	public List<Employee> getEmpoyeeFirstName(String firstName) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return employeeDao.getEmployeeListFirstName(firstName);
 	}
+	@Transactional
 	public List<Employee> getEmpoyeeLastName(String lastName) {
-		// TODO Auto-generated method stub
-		return null;
+		return employeeDao.getEmployeeListLastName(lastName);
 	}
+	@Transactional
 	public List<Employee> getEmpoyeeAge(int age) {
-		// TODO Auto-generated method stub
-		return null;
+		return employeeDao.getEmployeeListAge(age);
 	}
+	@Transactional
 	public List<Employee> getEmpoyeeLengthOfService(double lengthOfService) {
-		// TODO Auto-generated method stub
-		return null;
+		return employeeDao.getEmployeeListLength(lengthOfService);
 	}
+	@Transactional
 	public List<Employee> getEmployees() {
-		// TODO Auto-generated method stub
-		return null;
+		return employeeDao.getEmployeeList();
 	}
+	@Transactional
 	public int getEmployeeListSize() {
-		// TODO Auto-generated method stub
-		return 0;
+
+		return employeeDao.getAllEmployeesCount();
 	}
+	@Transactional
 	public Employee addEmployee(Employee employee) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Transactional
 	public List<Employee> getPortionEmployeeList(int offset, int limit) {
-		// TODO Auto-generated method stub
-		return null;
+		return employeeDao.getPortionEmployeeList(offset, limit);
 	}
+	@Transactional
 	public int getEmployeePages(int pageLimit) {
 		// TODO Auto-generated method stub
 		return 0;
