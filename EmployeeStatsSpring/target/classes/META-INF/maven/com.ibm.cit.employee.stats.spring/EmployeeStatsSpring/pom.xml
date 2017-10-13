@@ -41,6 +41,11 @@
 	</dependencyManagement>
 
 	<dependencies>
+		<dependency>
+		<groupId>org.apache.ant</groupId>
+		<artifactId>ant</artifactId>
+		<version>1.9.6</version>
+	</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -102,7 +107,7 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.11.Final</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.quartz-scheduler</groupId>
 			<artifactId>quartz</artifactId>
@@ -137,11 +142,11 @@
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/cglib/cglib -->
 		<dependency>
-		    <groupId>cglib</groupId>
-		    <artifactId>cglib</artifactId>
-		    <version>3.2.5</version>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>3.2.5</version>
 		</dependency>
-		
+
 	</dependencies>
 	<properties>
 		<jersey.version>2.16</jersey.version>

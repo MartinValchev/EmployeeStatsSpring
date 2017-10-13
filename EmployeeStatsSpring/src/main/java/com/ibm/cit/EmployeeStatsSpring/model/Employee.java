@@ -14,6 +14,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "employee")
+@NamedQueries({ @NamedQuery(name = "Employee.findAll", query = "select e from Employee e"),
+		@NamedQuery(name = "Employee.findId", query = "Select e from Employee e where e.id =:id"),
+		@NamedQuery(name = "Employee.firstName", query = "From Employee as empl where empl.employeeFirstName like :firstName"),
+		@NamedQuery(name = "Employee.lastName", query = "From Employee as empl where empl.employeeLastName like :lastName"),
+		@NamedQuery(name = "Employee.age", query = "Select e from Employee e where e.age =:age"),
+		@NamedQuery(name = "Employee.lengthOfService", query = "Select e from Employee e where e.lengthOfService =:lengthOfService"),
+		@NamedQuery(name = "Employee.count", query = "select count(*) from Employee empl") })
 public class Employee implements Serializable {
 
 	/**
