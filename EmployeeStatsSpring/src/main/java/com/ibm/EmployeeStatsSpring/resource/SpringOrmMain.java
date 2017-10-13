@@ -39,7 +39,7 @@ public class SpringOrmMain {
 		 * emplService.addEmployee(empl); System.out.println(newEmployee.getId());
 		 */
 		UserLoginService loginService = ctx.getBean("loginService", UserLoginService.class);
-		LoginToken loginToken = loginService.getLoginToken("cb1beff1-5386-42e8-a169-fe402390d2a2");
+		LoginToken loginToken = loginService.getLoginToken("84abef33-245b-4b95-8a34-2093ff1aa74d");
 		System.out.println(loginToken.getLoginTokenId());
 		System.out.println(loginToken.getHashToken());
 		System.out.println(loginToken.getExpirationDate());
