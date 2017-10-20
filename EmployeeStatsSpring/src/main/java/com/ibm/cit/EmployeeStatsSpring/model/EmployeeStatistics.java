@@ -1,4 +1,4 @@
-package com.ibm.cit.EmployeeStatsSpring.service;
+package com.ibm.cit.EmployeeStatsSpring.model;
 
 public class EmployeeStatistics {
 
@@ -8,7 +8,13 @@ public class EmployeeStatistics {
 	private double maxLengthOfService;
 	private StringBuilder builder;
 
-	public EmployeeStatistics() {
+	public EmployeeStatistics(double employeeAvgAge, String mostCommonChars, double avgLengthOfService,
+			double maxLengthOfService) {
+		super();
+		this.employeeAvgAge = employeeAvgAge;
+		this.mostCommonChars = mostCommonChars;
+		this.avgLengthOfService = avgLengthOfService;
+		this.maxLengthOfService = maxLengthOfService;
 		builder = new StringBuilder();
 	}
 

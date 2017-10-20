@@ -10,33 +10,44 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ibm.cit.EmployeeStatsSpring.dao.EmployeeDao;
 import com.ibm.cit.EmployeeStatsSpring.model.Employee;
+import com.ibm.cit.EmployeeStatsSpring.model.EmployeeStatistics;
 
-@Service(value="employeeService")
-@Repository
+@Service(value = "employeeService")
 @Transactional
 public class EmployeeServiceImpl implements EmployeeService {
-	
+
 	@Autowired
 	@Qualifier("employeeDao")
 	private EmployeeDao employeeDao;
+	
+	@Autowired
+	@Qualifier("calculations")
+	private Calculations calculations;
 
 	public Employee getEmpoyee(int id) {
-		Employee empl =employeeDao.getEmployee(id);
+		Employee empl = employeeDao.getEmployee(id);
 		return empl;
-}
-	
+	}
 
-	public List<Employee> getEmployeesList(){
+	public List<Employee> getEmployeesList() {
 		return employeeDao.getEmployeeList();
 	}
 
 	public EmployeeStatistics generateNewEmployeesStatistics() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Employee> employeeeList = employeeDao.getEmployeeList();
+		calculations.setListEmployees(employeeeList);
+		double avgLengthOfService = calculations.calculateAvgLenghtOfService();
+		double employeeAvgAge = calculations.calculateAvgEmpAge();
+		double maxLengthOfService = calculations.findMaxLengthOfService();
+		String mostCommonChars = calculations.getThreeMostCommonChars();
+		EmployeeStatistics empoyeeStatistics = new EmployeeStatistics(employeeAvgAge, mostCommonChars,
+				avgLengthOfService, maxLengthOfService);
+
+		return empoyeeStatistics;
 	}
 
 	public List<Employee> getEmpoyeeFirstName(String firstName) {
-		
+
 		return employeeDao.getEmployeeListFirstName(firstName);
 	}
 
@@ -62,7 +73,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	public Employee addEmployee(Employee employee) {
-		
+
 		return employeeDao.addEmployee(employee);
 	}
 

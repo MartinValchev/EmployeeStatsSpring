@@ -27,5 +27,7 @@ public interface UserLoginService {
 	public void deleteLoginToken(String tokenString);
 	
 	public List<LoginToken> getAllLoginTokens();
+	
+	public Login getLogin(String userName, String password);
 
 }

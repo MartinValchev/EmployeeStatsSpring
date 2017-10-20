@@ -117,5 +117,11 @@ public class UserLoginServiceImpl implements UserLoginService {
 		return loginDao.getAllLoginTokens();
 	}
 
+	@Override
+	public Login getLogin(String userName, String password) {
+		
+		return loginDao.getUser(userName, password);
+	}
+
 
 }

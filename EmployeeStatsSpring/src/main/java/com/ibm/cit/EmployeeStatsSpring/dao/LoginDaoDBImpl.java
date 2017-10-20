@@ -23,6 +23,8 @@ public class LoginDaoDBImpl implements LoginDao {
 	public Login getUser(String userName, String password) {
 		Login user = null;
 		Query query = entityManager.createNamedQuery("Login.getLogin", Login.class);
+		query.setParameter("username", userName);
+		query.setParameter("password", password);
 		user = (Login) query.getResultList().get(0);
 		return user;
 	}

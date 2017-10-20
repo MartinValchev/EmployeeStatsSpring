@@ -65,4 +65,5 @@ public interface LoginDao {
 	 *            
 	 */
 	public List<LoginToken> getAllLoginTokens();
+	
 }

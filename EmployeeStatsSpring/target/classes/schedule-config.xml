@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd"
+    xmlns:task="http://www.springframework.org/schema/task">
+    <import resource="app-context.xml"/>
+    
+		<bean id="tokensCleanTask" class="com.ibm.cit.EmployeeStatsSpring.schedule.TokensCleanTask"></bean>
+		
+		<bean id="tokensCleanJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+			<property name="jobClass" value="com.ibm.cit.EmployeeStatsSpring.schedule.TokensCleanJob"></property>
+			<property name="jobDataAsMap">
+				<map>
+				<entry key="tokensCleanTask" value-ref="tokensCleanTask"></entry>
+				</map>
+			</property>
+			<property name="durability" value="true"/>
+		</bean>
+		<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+			<property name="jobDetail" ref="tokensCleanJob"></property>
+			<property name="cronExpression" value="0 0/30 * 1/1 * ?"></property>
+		</bean>
+		<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+			<property name="jobDetails">
+			<list>
+				<ref bean="tokensCleanJob"/>
+			</list>
+			</property>
+			<property name="triggers">
+				<list>
+					<ref bean= "cronTrigger"/>
+				</list>
+			</property>
+		</bean>
+    </beans>
