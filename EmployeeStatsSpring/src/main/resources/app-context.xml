@@ -10,7 +10,10 @@
 		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx.xsd
 		 http://www.springframework.org/schema/data/jpa
-    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+        http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+   <bean id="contextLoader" class="com.ibm.cit.EmployeeStatsSpring.controller.ApplicationContextProvider" />
 	<context:annotation-config />
 	<context:component-scan base-package="com.ibm.cit.EmployeeStatsSpring.model"/>
 	<context:component-scan base-package="com.ibm.cit.EmployeeStatsSpring.dao"/>

@@ -48,7 +48,7 @@ public interface EmployeeService {
 	 * @param int age
 	 * @return List<Employee>
 	 */
-	List<Employee> getEmpoyeeAge(int age);
+	List<Employee> getEmpoyeeAge(double age);
 	/**
 	 * return list  of Employee instances by provided employee length of service
 	 * 

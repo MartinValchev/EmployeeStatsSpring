@@ -55,7 +55,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeDao.getEmployeeListLastName(lastName);
 	}
 
-	public List<Employee> getEmpoyeeAge(int age) {
+	public List<Employee> getEmpoyeeAge(double age) {
 		return employeeDao.getEmployeeListAge(age);
 	}
 

@@ -31,7 +31,7 @@ public interface EmployeeDao {
 	 * @throws @return
 	 *             List<Employee>
 	 */
-	public List<Employee> getEmployeeListAge(int age);
+	public List<Employee> getEmployeeListAge(double age);
 	/**
 	 * provides List of Employee instances based on employee first name,offset and elements limit criteria
 	 * 

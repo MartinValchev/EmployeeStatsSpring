@@ -31,7 +31,7 @@ function generatePageElements(employeeCount, pageLimit,listElement) {
 };
 function renderEmployeeRecord(employee,containerElement){
 	var imported = document.createElement('script');
-	imported.src = 'js/employeeTemplate.js';
+	imported.src = 'pages/js/employeeTemplate.js';
 	document.head.appendChild(imported);
 	var id = employee.id;
 	var firstName = employee.employeeFirstName;

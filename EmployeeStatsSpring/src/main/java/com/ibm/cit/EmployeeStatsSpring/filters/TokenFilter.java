@@ -23,6 +23,10 @@ import com.ibm.cit.EmployeeStatsSpring.service.UserLoginService;
 @Transactional
 public class TokenFilter extends HttpServlet {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1799436942857120621L;
 	private static final String COOKIE_TOKEN_ID = "token_id";
 	private static final String SECURED_URL_PREFIX = "secured";
 	private static final Response ACCESS_DENIED = Response.status(Response.Status.UNAUTHORIZED).build();

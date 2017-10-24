@@ -21,6 +21,9 @@ public class EmployeeDaoDBImpl implements EmployeeDao {
 	public Employee getEmployee(int id) {
 		Query query = em.createNamedQuery("Employee.findId", Employee.class);
 		query.setParameter("id", id);
+		if(query.getResultList().size()==0) {
+			return null;
+		}
 		Employee empl = (Employee) query.getResultList().get(0);
 		return empl;
 	}
@@ -34,9 +37,10 @@ public class EmployeeDaoDBImpl implements EmployeeDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Employee> getEmployeeListAge(int age) {
+	public List<Employee> getEmployeeListAge(double age) {
 		List<Employee> employeeList = null;
 		Query query = em.createNamedQuery("Employee.age", Employee.class);
+		query.setParameter("age", age);
 		employeeList = query.getResultList();
 		return employeeList;
 	}

@@ -1,18 +1,18 @@
-var url ="http://localhost:8080/EmployeeStatsWeb/pages/Statistics.html";
+/*var url ="http://localhost:8080/EmployeeStatsWeb/pages/Statistics.html";
 		  var d = new Date();
 		    d.setTime(d.getTime() + (15*60*1000));
 		    var expires = "expires="+ d.toUTCString();
 		    document.cookie = "requested_page=" + url + ";" + expires + ";path=/";
 		    var user_cookie = getCookie("logged_user");
 		    var userElement = $("#logged_user");
-		    $('#logged_user').text('Welcome: '+ user_cookie);
+		    $('#logged_user').text('Welcome: '+ user_cookie);*/
 		    	    $.ajax({
 		    		type : 'GET',
-		    		url : 'http://localhost:8080/EmployeeStatsWeb/webapi/secured/statistics',
+		    		url : 'http://localhost:8080/EmployeeStatsSpring/employee/stats',
 		    		statusCode: {
 		    			200: function(resultStatistics){
 		    				var imported = document.createElement('script');
-		    				imported.src = 'js/statisticsTemplate.js';
+		    				imported.src = 'pages/js/statisticsTemplate.js';
 		    				document.head.appendChild(imported);
 		    				var employeeAvgAge = resultStatistics.employeeAvgAge;
 		    				var mostCommonChars = resultStatistics.mostCommonChars;

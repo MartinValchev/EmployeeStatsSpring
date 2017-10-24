@@ -1,4 +1,4 @@
-var url = "http://localhost:8080/EmployeeStatsWeb/pages/Employee.html";
+/*var url = "http://localhost:8080/EmployeeStatsWeb/pages/Employee.html";
 var d = new Date();
 d.setTime(d.getTime() + (15 * 60 * 1000));
 var expires = "expires=" + d.toUTCString();
@@ -7,18 +7,18 @@ document.cookie = "requested_page=" + url + ";" + expires + ";path=/";
 var testUrl = 'http://localhost:8080/EmployeeStatsWeb/webapi/login/tokenCheck';
 var user_cookie = getCookie("logged_user");
 var userElement = $("#logged_user");
-$('#logged_user').text('Welcome: ' + user_cookie);
+$('#logged_user').text('Welcome: ' + user_cookie);*/
 var pageElementsLimit = 3;
 var elements;
 var employeeList =$('#employeesList');
 var imported = document.createElement('script');
-imported.src = 'js/employeeTemplate.js';
+imported.src = 'pages/js/employeeTemplate.js';
 document.head.appendChild(imported);
 
 function getEmployee() {
 	var criteriaField = $('#criteria').val();
 	var paramField = $('#param_field').val();
-	var resultURL = 'http://localhost:8080/EmployeeStatsWeb/webapi/secured/employees/'
+	var resultURL = 'http://localhost:8080/EmployeeStatsSpring/employee/'
 			+ criteriaField + '=' + paramField;
 	var employeeContainer = $('#employee-info');
 	employeeContainer.empty();
@@ -41,6 +41,9 @@ function getEmployee() {
 						console.log(employeeTemplate);
 						employeeTemplate = employeeTemplate.html();
 						for (item = 0; item < pageElementsLimit; item++) {
+							if(result[item] ==null){
+								break;
+							}
 							renderEmployeeRecord(result[item],
 									employeeContainer);
 						}

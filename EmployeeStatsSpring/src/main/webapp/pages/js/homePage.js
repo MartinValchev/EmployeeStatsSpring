@@ -1,4 +1,4 @@
-	var homeResourceUrl = 'http://localhost:8080/EmployeeStatsSpring/webapi/login/secured/home';
+	var homeResourceUrl = 'http://localhost:8080/EmployeeStatsSpring/home';
 	var homeUrl = "home.html";
 	var loginURL ="login.html";
 
