@@ -1,17 +1,17 @@
-var url = "http://localhost:8080/EmployeeStatsWeb/pages/AllEmployees.html";
+/*var url = "http://localhost:8080/EmployeeStatsSpring/pages/AllEmployees.html";
 var d = new Date();
 d.setTime(d.getTime() + (15 * 60 * 1000));
 var expires = "expires=" + d.toUTCString();
-document.cookie = "requested_page=" + url + ";" + expires + ";path=/";
+document.cookie = "requested_page=" + url + ";" + expires + ";path=/";*/
 var pageElementsLimit = 4;
-var urlParticle = 'http://localhost:8080/EmployeeStatsWeb/webapi/secured/employees';
-var user_cookie = getCookie("logged_user");
+var urlParticle = 'http://localhost:8080/EmployeeStatsSpring/employee/employeeList';
+/*var user_cookie = getCookie("logged_user");
 var userElement = $("#logged_user");
-$('#logged_user').text('Welcome: '+ user_cookie);
+$('#logged_user').text('Welcome: '+ user_cookie);*/
 var employeeContainer = $('#employeesList');
 		$.ajax({
 			type : 'GET',
-			url : urlParticle+'?start=0&size='+ pageElementsLimit,
+			url : urlParticle+'?start=1&size='+ pageElementsLimit,
 			statusCode : {
 				200 : function(result) {
 					var employeeCount = getCookie("employee_count");
@@ -22,7 +22,7 @@ var employeeContainer = $('#employeesList');
 					});
 				},
 				401 : function(response) {
-					window.location.href = "http://localhost:8080/EmployeeStatsWeb/pages/login.html";
+					window.location.href = "http://localhost:8080/EmployeeStatsSpring/pages/login.html";
 				}
 
 			},
@@ -33,10 +33,8 @@ var employeeContainer = $('#employeesList');
 		});
 function getSpecificEmployeePage(pageNum) {
 	var pageElementsLimit = 4;
-	var offset = (pageNum-1)*pageElementsLimit;
-
 	var requestURL =urlParticle+ '?start='
-	+ offset + '&size=' + pageElementsLimit;
+	+ pageNum + '&size=' + pageElementsLimit;
 	$.ajax({
 		type : 'GET',
 		url : requestURL,

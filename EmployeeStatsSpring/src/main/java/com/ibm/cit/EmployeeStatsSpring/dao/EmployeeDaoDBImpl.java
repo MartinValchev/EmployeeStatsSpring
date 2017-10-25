@@ -85,10 +85,10 @@ public class EmployeeDaoDBImpl implements EmployeeDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Employee> getPortionEmployeeList(int offset, int limit) {
+	public List<Employee> getPortionEmployeeList(int start, int limit) {
 		List<Employee> employeeList = null;
 		Query query = em.createNamedQuery("Employee.findAll", Employee.class);
-		query.setFirstResult((offset - 1) * limit);
+		query.setFirstResult((start - 1) * limit);
 		query.setMaxResults(limit);
 		employeeList = query.getResultList();
 		return employeeList;

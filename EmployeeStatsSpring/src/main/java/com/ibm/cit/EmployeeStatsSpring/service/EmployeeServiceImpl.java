@@ -77,8 +77,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeDao.addEmployee(employee);
 	}
 
-	public List<Employee> getPortionEmployeeList(int offset, int limit) {
-		return employeeDao.getPortionEmployeeList(offset, limit);
+	public List<Employee> getPortionEmployeeList(int start, int offset) {
+		return employeeDao.getPortionEmployeeList(start, offset);
 	}
 
 	public int getEmployeePages(int pageLimit) {

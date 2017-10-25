@@ -13,7 +13,7 @@ public class Test {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/app-context.xml");
 		// ctx.refresh();
 		EmployeeService employeeService = ctx.getBean("employeeService", EmployeeService.class);
-		List<Employee> employees = employeeService.getEmpoyeeAge(28);
+		List<Employee> employees = employeeService.getPortionEmployeeList(2, 4);
 		if (employees != null) {
 			for (Employee employee : employees) {
 				System.out.println(employee);
