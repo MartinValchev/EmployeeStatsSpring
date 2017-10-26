@@ -1,5 +1,5 @@
 
-var url ="http://localhost:8080/EmployeeStatsWeb/pages/AddEmployee.html";
+var url ="http://localhost:8080/EmployeeStatsSpring/AddEmployee.html";
 		  var d = new Date();
 		    d.setTime(d.getTime() + (15*60*1000));
 		    var expires = "expires="+ d.toUTCString();
@@ -60,24 +60,19 @@ var url ="http://localhost:8080/EmployeeStatsWeb/pages/AddEmployee.html";
 					 	lengthOfService: $lengthOfService,
 					 	 
 					 };
-					 var emplSubmitString = JSON.stringify(emplSubmit);
+					 var employee = JSON.stringify(emplSubmit);
 					 
 					 
 					$.ajax({
 						type:'POST',
 						contentType: 'application/json; charset=utf-8',
 					    dataType: 'json',
-						url:'http://localhost:8080/EmployeeStatsWeb/webapi/secured/employees/add',
-						data:JSON.stringify({
-							employeeFirstName:$firstname,
-						 	employeeLastName: $lastName,
-						 	age: $age,
-						 	lengthOfService: $lengthOfService,
-						}),
+						url:'employee/add',
+						data:employee,
 						statusCode: {
-							200:function(result) {
+							201:function(result) {
 								var imported = document.createElement('script');
-								imported.src = 'js/employeeTemplate.js';
+								imported.src = './pages/js/employeeTemplate.js';
 								document.head.appendChild(imported);
 								var id = result.id;
 								var firstName = result.employeeFirstName;
@@ -94,7 +89,7 @@ var url ="http://localhost:8080/EmployeeStatsWeb/pages/AddEmployee.html";
 						},
 						error:function(jqXHR, textStatus, errorThrown){
 							if(jqXHR.status == 401){
-								window.location.href = "http://localhost:8080/EmployeeStatsWeb/pages/login.html";
+								window.location.href = "http://localhost:8080/EmployeeStatsSpring/login.html";
 							}else{
 								console.log('error saving employee: ' + errorThrown);
 							}

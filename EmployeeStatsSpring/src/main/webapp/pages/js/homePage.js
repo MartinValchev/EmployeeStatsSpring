@@ -25,7 +25,7 @@
 
 
 function setRequestPageCookie(location) {
-	var url = "http://localhost:8080/EmployeeStatsWeb/pages/" + location;
+	var url = "http://localhost:8080/EmployeeStatsSpring/" + location;
 	var d = new Date();
 	d.setTime(d.getTime() + (15 * 60 * 1000));
 	var expires = "expires=" + d.toUTCString();
@@ -36,7 +36,7 @@ function setRequestPageCookie(location) {
 				url : url,
 				statusCode : {
 					200 : function(result) {
-						window.location.href = "http://localhost:8080/EmployeeStatsWeb/pages/"
+						window.location.href = "http://localhost:8080/EmployeeStatsSpring/"
 								+ location;
 					},
 					401 : function(response) {
