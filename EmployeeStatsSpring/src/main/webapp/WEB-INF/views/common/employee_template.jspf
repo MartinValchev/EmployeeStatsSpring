@@ -1,0 +1,19 @@
+<template id='employee-template'>
+				<li class="edit">
+					<p data-id='{{id}}'>
+						<strong>ID:</strong> {{id}}
+					</p>
+				</li>
+				<li class="empl-row"><p class="first-name">
+						<strong> First name:</strong> {{firstName}}
+					</p></li>
+				<li class="empl-row"><p class="last-name">
+						<strong> Last name:</strong> {{lastName}}
+					</p></li>
+				<li class="empl-row"><p class="age">
+						<strong> Age: </strong>{{age}}
+					</p></li>
+				<li class="empl-row"><p class="length-of-service">
+						<strong> Length of service:</strong> {{lengthOfService}}
+					</p></li>
+</template>

@@ -13,6 +13,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,6 +47,11 @@ public class EmployeeController {
 	@RequestMapping(path = "/addEmployeePage")
 	public ModelAndView addEmployeePage() {
 		ModelAndView model = new ModelAndView("AddEmployee");
+		return model;
+	}
+	@RequestMapping(path = "/test")
+	public ModelAndView testPage() {
+		ModelAndView model = new ModelAndView("testPage");
 		return model;
 	}
 
@@ -219,6 +226,16 @@ public class EmployeeController {
 		EmployeeStatistics statistics = employeeService.generateNewEmployeesStatistics();
 		responseStatistics = new ResponseEntity<EmployeeStatistics>(statistics, HttpStatus.OK);
 		return responseStatistics;
+	}
+	
+	private String getLoggedInUserName() {
+		Object principal = SecurityContextHolder.getContext()
+				.getAuthentication().getPrincipal();
+
+		if (principal instanceof UserDetails)
+			return ((UserDetails) principal).getUsername();
+
+		return principal.toString();
 	}
 
 }

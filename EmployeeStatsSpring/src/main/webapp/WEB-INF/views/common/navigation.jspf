@@ -1,0 +1,28 @@
+<nav role="navigation" class="navbar navbar-inverse">
+
+	<div class="container-fluid">
+		<ul class="nav navbar-nav" id="mainMenu">
+			<li onclick="window.location.href ='home.html'"><a
+				data-toggle="tab" href="#">Home</a></li>
+			<li class="active"><a data-toggle="tab" href="#"
+				onclick="setRequestPageCookie('AddEmployee.html')" id="addEmployee">Add
+					Employee</a></li>
+			<li><a data-toggle="tab" href="#"
+				onclick="setRequestPageCookie('AllEmployees.html')" id="allEmployee">All
+					Employees List</a></li>
+			<li><a data-toggle="tab" href="#"
+				onclick="setRequestPageCookie('Employee.html')" type="submit"
+				id="specEmployee"> Get Specific Employee</a></li>
+			<li><a data-toggle="tab" href="#"
+				onclick="setRequestPageCookie('Statistics.html')" id="statisticsN">
+					Employee Statistics</a></li>
+
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a id="logged_user" href="#"><span
+					class="glyphicon glyphicon-user"></span> User</a></li>
+			<li><a id="logout" onclick="logout()" href="#"><span
+					class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+		</ul>
+	</div>
+</nav>

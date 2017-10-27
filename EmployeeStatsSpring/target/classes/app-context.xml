@@ -26,6 +26,7 @@
 			value="jdbc:postgresql://127.0.0.1:5432/EmployeeDatabase" />
 		<property name="username" value="postgres" />
 		<property name="password" value="Postgre12@" />
+		
 	</bean>
 
 	<bean id="entityManagerFactory"
@@ -36,15 +37,22 @@
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="generateDdl" value="true" />
 				<property name="showSql" value="true" />
+					
 			</bean>
 		</property>
+	<!-- 	 <property name="jpaDialect">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+        </property> -->
 		<property name="jpaProperties">
 			<props>
 				<prop key="hibernate.c3p0.min_size">10</prop>
 				<prop key="hibernate.c3p0.timeout">300</prop>
 				<prop key="hibernate.c3p0.idle_test_period">300</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
+				
 		</property>
+	
 	</bean>
 
 
